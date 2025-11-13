@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Velora E-Mobility — Ride Green. Ride Smart.</title>
+  <meta name="description" content="Velora E-Mobility — solusi e-bike ramah lingkungan untuk pengguna urban dan fleet. Jadwalkan demo, lihat layanan, dan hubungi kami." />
+  <meta name="theme-color" content="#0FA37A" />
+  <!-- Minimal structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Velora E-Mobility",
+    "url":"https://velora.example",
+    "logo":"",
+    "sameAs":[],
+    "description":"Velora menyediakan e-bike & platform manajemen fleet untuk solusi mobilitas perkotaan yang ramah lingkungan."
+  }
+  </script>
+
+  <style>
+    /* ====== BASE & RESET ====== */
+    :root{
+      --green:#0FA37A;
+      --navy:#0A2540;
+      --bg:#F6F7F9;
+      --accent:#FFD166;
+      --maxw:1100px;
+      --radius:12px;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --shadow: 0 8px 24px rgba(10,37,64,0.06);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: light;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg, var(--bg), #ffffff 60%);
+      color:var(--navy);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:16px;
+    }
+    a{color:var(--green); text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+    /* ====== HEADER / NAV ====== */
+    header.site-header{
+      background:transparent;
+      position:sticky;top:0;z-index:40;
+      backdrop-filter: blur(6px);
+      border-bottom:1px solid rgba(10,37,64,0.04);
+    }
+    .topbar{display:flex;justify-content:flex-end;align-items:center;padding:6px 0;font-size:13px;color:var(--muted)}
+    .topbar .contact{margin-right:auto}
+    nav.navbar{display:flex;align-items:center;gap:24px;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:700}
+    .logo .mark{
+      width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--green),#08a56a);
+      display:grid;place-items:center;color:white;font-weight:700;box-shadow:var(--shadow);
+    }
+    .menu{display:flex;gap:18px;align-items:center;margin-left:auto}
+    .menu a{padding:8px 10px;border-radius:8px;color:var(--navy);font-weight:500}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--green);color:#fff;font-weight:600;border:none;cursor:pointer}
+    .btn.secondary{background:transparent;border:1px solid rgba(10,37,64,0.06);color:var(--navy)}
+    .hamburger{display:none}
+
+    /* ====== HERO ====== */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:48px 0}
+    .hero h1{font-size:34px;margin:0 0 12px}
+    .hero p.lead{margin:0 0 18px;color:var(--muted);max-width:54ch}
+    .hero .badges{display:flex;gap:8px;margin-top:8px}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+
+    .features{display:flex;gap:12px;margin-top:20px}
+    .feature{flex:1;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(15,163,122,0.06),transparent)}
+    .feature h4{margin:0 0 6px;font-size:15px}
+    .illustration{display:grid;place-items:center}
+
+    /* ====== SECTIONS ====== */
+    section{padding:34px 0}
+    h2.section-title{font-size:20px;margin:0 0 12px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+
+    /* Portfolio cards */
+    .project{display:flex;gap:12px;align-items:flex-start}
+    .project img{width:120px;height:80px;object-fit:cover;border-radius:8px}
+
+    /* Testimonials */
+    .testimonials{display:flex;gap:12px;overflow:auto;padding-bottom:8px}
+    .testimonial{min-width:260px;padding:16px;border-radius:12px;background:linear-gradient(180deg,#fff, #fbfffb);box-shadow:var(--shadow)}
+
+    /* FAQ */
+    .faq-item{padding:12px;border-radius:10px;background:linear-gradient(180deg, #fff, #fcfffb);border:1px solid rgba(10,37,64,0.03)}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:20px}
+    form .form-row{display:flex;flex-direction:column;margin-bottom:12px}
+    label{font-size:14px;margin-bottom:6px;font-weight:600}
+    input[type="text"], input[type="email"], input[type="tel"], select, textarea{
+      padding:10px;border-radius:8px;border:1px solid rgba(10,37,64,0.08);font-size:15px;background:white
+    }
+    textarea{min-height:120px;resize:vertical;padding-top:12px}
+    .error{color:#d03a3a;font-size:13px;margin-top:6px}
+    .hint{font-size:13px;color:var(--muted)}
+    .aria-announcer{position: absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+
+    /* Footer */
+    footer.site-footer{padding:28px 0;border-top:1px solid rgba(10,37,64,0.04)}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+    /* Utilities */
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(15,163,122,0.09);font-weight:600;color:var(--green)}
+    .muted{color:var(--muted)}
+
+    /* RESPONSIVE */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr 320px}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .grid-2{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      .menu{display:none}
+      .hamburger{display:block;margin-left:auto;background:transparent;border:0}
+      .hero{grid-template-columns:1fr;gap:18px;padding:28px 0}
+      .illustration{order:-1}
+      .grid-3{grid-template-columns:1fr}
+      .testimonials{gap:12px}
+      .topbar{font-size:12px;padding:6px 4px}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:auto;">Skip to content</a>
+
+  <!-- HEADER -->
+  <header class="site-header" role="banner" aria-label="Site header">
+    <div class="container topbar" aria-hidden="false">
+      <div class="contact muted">📞 +62 21 5555 0101 — ✉ sales@velora.example</div>
+      <div class="social muted">LinkedIn · Instagram · Twitter</div>
+    </div>
+
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="logo" aria-hidden="false">
+          <div class="mark" aria-hidden="true">V</div>
+          <div>
+            <div style="font-size:15px">Velora</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:-2px">Ride Green. Ride Smart.</div>
+          </div>
+        </div>
+
+        <button class="hamburger" aria-expanded="false" aria-controls="main-menu" title="Buka menu">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="#0A2540" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+
+        <div class="menu" id="main-menu">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#blog">Blog</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact" class="btn" style="margin-left:6px">Request Demo</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main id="main" role="main">
+    <!-- HERO -->
+    <section id="home" class="hero container" aria-label="Hero">
+      <div>
+        <span class="pill">New • Fleet-ready</span>
+        <h1>Solusi e-bike perkotaan — aman, hemat, berkelanjutan.</h1>
+        <p class="lead">Velora menyediakan e-bike dan platform manajemen fleet untuk perusahaan dan pengguna urban. Kurangi biaya operasional, percepat pengiriman, dan dukung agenda hijau kota Anda.</p>
+
+        <div style="display:flex;gap:12px;margin-top:14px">
+          <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Jadwalkan Demo</button>
+          <a class="btn secondary" href="#services">Pelajari Produk</a>
+        </div>
+
+        <div class="features" aria-hidden="false" style="margin-top:18px">
+          <div class="feature">
+            <h4>Battery swap cepat</h4>
+            <div class="muted">Ganti baterai dalam ≤ 3 menit di stasiun resmi.</div>
+          </div>
+          <div class="feature">
+            <h4>Telemetri real-time</h4>
+            <div class="muted">Pantau fleet dengan dashboard web & mobile.</div>
+          </div>
+          <div class="feature">
+            <h4>Layanan & garansi</h4>
+            <div class="muted">SLA 48 jam untuk perbaikan dan dukungan 24/7.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="illustration" aria-hidden="false">
+        <div class="card" style="width:100%;text-align:center">
+          <!-- Simple SVG placeholder e-bike -->
+          <svg width="320" height="200" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrasi e-bike">
+            <rect width="100%" height="100%" rx="12" fill="#f8fff8"/>
+            <g transform="translate(18,24)">
+              <circle cx="64" cy="120" r="36" fill="#e6f9f0"/>
+              <circle cx="192" cy="120" r="36" fill="#e6f9f0"/>
+              <rect x="80" y="58" width="72" height="10" rx="5" fill="#0A2540" opacity="0.08"/>
+              <path d="M56 92 L100 40 L180 42 L220 92" stroke="#0A2540" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85"/>
+              <rect x="120" y="60" width="24" height="34" rx="6" fill="#0FA37A"/>
+              <text x="24" y="22" fill="#0A2540" font-size="12" font-weight="700">Velora Commuter</text>
+            </g>
+          </svg>
+          <div style="margin-top:12px;font-weight:600">Garansi frame 2 tahun • Baterai 1 tahun</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container" aria-labelledby="aboutTitle">
+      <h2 id="aboutTitle" class="section-title">Tentang Velora</h2>
+      <div class="card" style="padding:18px">
+        <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+          <div style="flex:1;min-width:260px">
+            <h3>Visi</h3>
+            <p class="muted">Menjadikan mobilitas perkotaan lebih bersih dan efisien melalui solusi e-bike terjangkau.</p>
+            <h3>Misi</h3>
+            <ul class="muted">
+              <li>Menyediakan produk berkualitas dengan layanan cepat.</li>
+              <li>Membangun jaringan stasiun swap baterai di area urban.</li>
+              <li>Mendukung partner fleet dengan dashboard & analitik.</li>
+            </ul>
+          </div>
+          <div style="width:220px">
+            <h4>Tim Pendiri</h4>
+            <div style="display:flex;gap:10px;flex-direction:column">
+              <div style="display:flex;gap:10px;align-items:center">
+                <div style="width:48px;height:48px;border-radius:50%;background:#e9f7f1;display:grid;place-items:center">AR</div>
+                <div>
+                  <div style="font-weight:700">Ardi Putra</div>
+                  <div class="muted" style="font-size:13px">CEO — Latar belakang R&D & product</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:center">
+                <div style="width:48px;height:48px;border-radius:50%;background:#fff6df;display:grid;place-items:center">MD</div>
+                <div>
+                  <div style="font-weight:700">Maya Dwi</div>
+                  <div class="muted" style="font-size:13px">COO — Operasi & layanan</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:center">
+                <div style="width:48px;height:48px;border-radius:50%;background:#eef4ff;display:grid;place-items:center">RD</div>
+                <div>
+                  <div style="font-weight:700">Rian D.</div>
+                  <div class="muted" style="font-size:13px">CTO — Platform & telemetri</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="container" aria-labelledby="servicesTitle">
+      <h2 id="servicesTitle" class="section-title">Layanan & Produk</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Velora Commuter</h3>
+          <p class="muted">E-bike ringan untuk penggunaan harian. Jarak 60–80 km per charge.</p>
+          <ul class="muted">
+            <li>Desain ramping & ringkas</li>
+            <li>Battery swap & integrasi app</li>
+            <li>Garansi frame 2 tahun</li>
+          </ul>
+          <div style="margin-top:10px"><a href="#contact" class="btn">Minta Penawaran</a></div>
+        </div>
+
+        <div class="card">
+          <h3>Velora Fleet</h3>
+          <p class="muted">Solusi fleet untuk perusahaan: telemetri real-time, dashboard, SLA servis.</p>
+          <ul class="muted">
+            <li>Manajemen armada & rute</li>
+            <li>Layanan 24/7 & paket maintenance</li>
+            <li>Integrasi API untuk ERP</li>
+          </ul>
+          <div style="margin-top:10px"><a href="#contact" class="btn">Request Demo</a></div>
+        </div>
+
+        <div class="card">
+          <h3>Velora Lease & Support</h3>
+          <p class="muted">Paket leasing & subscription untuk perusahaan maupun individu.</p>
+          <ul class="muted">
+            <li>Pilihan 6 / 12 / 24 bulan</li>
+            <li>Update perangkat lunak berkala</li>
+            <li>Pelatihan & onboarding</li>
+          </ul>
+          <div style="margin-top:10px"><a href="#contact" class="btn">Hubungi Sales</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="container" aria-labelledby="portfolioTitle">
+      <h2 id="portfolioTitle" class="section-title">Portofolio Pilihan</h2>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="card project">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='200' viewBox='0 0 320 200'%3E%3Crect width='100%25' height='100%25' fill='%23eafaf0' rx='8'/%3E%3Ctext x='20' y='28' font-size='16' fill='%230a2540'%3EGreenCampus - 150 units%3C/text%3E%3C/svg%3E" alt="GreenCampus project">
+          <div>
+            <div style="font-weight:700">GreenCampus • Universitas Nusantara</div>
+            <div class="muted">Tantangan: transportasi internal. Solusi: 150 Velora + stasiun swap. Hasil: pengurangan biaya transport 45%.</div>
+          </div>
+        </div>
+
+        <div class="card project">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='200' viewBox='0 0 320 200'%3E%3Crect width='100%25' height='100%25' fill='%23fff4e6' rx='8'/%3E%3Ctext x='20' y='28' font-size='16' fill='%230a2540'%3EQuickDeliver - Last-mile%3C/text%3E%3C/svg%3E" alt="QuickDeliver project">
+          <div>
+            <div style="font-weight:700">QuickDeliver • Green Logistics Co.</div>
+            <div class="muted">Tantangan: efisiensi last-mile. Solusi: 80 fleet + telemetri. Hasil: waktu delivery turun 22%.</div>
+          </div>
+        </div>
+
+        <div class="card project">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='200' viewBox='0 0 320 200'%3E%3Crect width='100%25' height='100%25' fill='%23eef2ff' rx='8'/%3E%3Ctext x='20' y='28' font-size='16' fill='%230a2540'%3ECityShare - Micro-mobility%3C/text%3E%3C/svg%3E" alt="CityShare project">
+          <div>
+            <div style="font-weight:700">CityShare • Jakarta SmartCity</div>
+            <div class="muted">Tantangan: aksesibilitas transport. Solusi: integrasi with city app. Hasil: adopsi pengguna naik 3x.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="container" aria-labelledby="testiTitle">
+      <h2 id="testiTitle" class="section-title">Testimoni</h2>
+      <div class="testimonials" role="list" aria-label="Client testimonials">
+        <div class="testimonial" role="listitem">
+          <div style="font-weight:700">Rini S. — Head of Logistics, FoodoraID</div>
+          <div class="muted">“Migrasi 200 unit Velora menurunkan biaya last-mile 28% dalam 6 bulan. Layanan purna jual responsif.”</div>
+        </div>
+        <div class="testimonial" role="listitem">
+          <div style="font-weight:700">Dedi H. — Campus Operations</div>
+          <div class="muted">“Solusi Velora memudahkan mobilitas mahasiswa — lebih aman dan hemat.”</div>
+        </div>
+        <div class="testimonial" role="listitem">
+          <div style="font-weight:700">Maya P. — Founder, GreenMarket</div>
+          <div class="muted">“Partner yang mengerti sustainability dan eksekusi cepat. Highly recommended.”</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG / NEWS MOCKUP -->
+    <section id="blog" class="container" aria-labelledby="blogTitle">
+      <h2 id="blogTitle" class="section-title">Berita & Insight</h2>
+      <article class="card" aria-labelledby="articleTitle" style="display:flex;gap:16px;align-items:flex-start;flex-direction:column">
+        <h3 id="articleTitle">Velora uji coba fleet 50 unit di BSD, penghematan biaya logistik 32%</h3>
+        <div class="muted" style="font-size:13px">16 Okt 2025 • oleh Tim Velora</div>
+        <p class="muted" style="margin-top:8px">Velora meluncurkan uji coba 50 unit Velora Fleet dengan integrasi stasiun swap baterai di kawasan BSD. Studi awal menunjukkan penurunan biaya operasional dan waktu tunggu pengiriman...</p>
+        <a href="#contact" class="btn" style="align-self:flex-start">Minta Studi Kasus</a>
+      </article>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container" aria-labelledby="faqTitle">
+      <h2 id="faqTitle" class="section-title">FAQ</h2>
+      <div class="grid-2">
+        <div class="faq-item">
+          <strong>1. Apa jarak tempuh satu kali charge?</strong>
+          <p class="muted">Rata-rata 60–80 km tergantung mode berkendara, beban, dan kondisi jalan.</p>
+        </div>
+        <div class="faq-item">
+          <strong>2. Berapa lama garansi produk?</strong>
+          <p class="muted">Garansi 2 tahun untuk frame, 1 tahun untuk baterai. Syarat & ketentuan berlaku.</p>
+        </div>
+        <div class="faq-item">
+          <strong>3. Apakah tersedia layanan fleet management?</strong>
+          <p class="muted">Ya — paket telemetri real-time, dashboard fleet, dan paket maintenance 24/7.</p>
+        </div>
+        <div class="faq-item">
+          <strong>4. Bagaimana proses swap baterai?</strong>
+          <p class="muted">Swap di stasiun resmi biasanya memakan waktu < 3 menit. Tersedia juga layanan pengantaran baterai di area tertentu.</p>
+        </div>
+        <div class="faq-item">
+          <strong>5. Apakah ada opsi leasing?</strong>
+          <p class="muted">Tersedia paket leasing / subscription untuk korporat dan perorangan (6/12/24 bulan).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container" aria-labelledby="contactTitle">
+      <h2 id="contactTitle" class="section-title">Hubungi Kami</h2>
+      <div class="card contact-grid">
+        <div>
+          <form id="contactForm" novalidate>
+            <input type="hidden" name="honeypot" id="honeypot" tabindex="-1" autocomplete="off">
+            <div class="form-row">
+              <label for="name">Nama <span aria-hidden="true" style="color:#d03a3a">*</span></label>
+              <input id="name" name="name" type="text" required minlength="2" aria-required="true" />
+              <span class="error" id="err-name" aria-live="polite"></span>
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email <span aria-hidden="true" style="color:#d03a3a">*</span></label>
+              <input id="email" name="email" type="email" required aria-required="true"/>
+              <span class="error" id="err-email" aria-live="polite"></span>
+            </div>
+
+            <div class="form-row">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" pattern="^\+?\d{7,15}$" placeholder="+628..." />
+              <span class="hint">Format internasional dianjurkan (opsional)</span>
+              <span class="error" id="err-phone" aria-live="polite"></span>
+            </div>
+
+            <div class="form-row">
+              <label for="purpose">Tujuan <span aria-hidden="true" style="color:#d03a3a">*</span></label>
+              <select id="purpose" name="purpose" required>
+                <option value="">-- Pilih --</option>
+                <option value="demo">Jadwalkan Demo</option>
+                <option value="quote">Minta Penawaran</option>
+                <option value="support">Support</option>
+                <option value="general">Pertanyaan Umum</option>
+              </select>
+              <span class="error" id="err-purpose" aria-live="polite"></span>
+            </div>
+
+            <div class="form-row">
+              <label for="message">Pesan <span aria-hidden="true" style="color:#d03a3a">*</span></label>
+              <textarea id="message" name="message" required minlength="20" aria-required="true"></textarea>
+              <span class="error" id="err-message" aria-live="polite"></span>
+            </div>
+
+            <div style="display:flex;gap:12px;align-items:center">
+              <button type="submit" class="btn">Kirim Pesan</button>
+              <button type="button" class="btn secondary" onclick="document.getElementById('contactForm').reset()">Reset</button>
+            </div>
+
+            <div id="formStatus" class="muted" role="status" style="margin-top:12px"></div>
+          </form>
+        </div>
+
+        <aside aria-label="Contact details">
+          <div style="margin-bottom:12px">
+            <strong>Alamat Kantor</strong>
+            <div class="muted">Velora E-Mobility HQ — Jl. Merdeka Hijau No.99, Kawasan Inovasi, Jakarta Pusat, Indonesia</div>
+          </div>
+
+          <div style="margin-bottom:12px">
+            <strong>Jam Kantor</strong>
+            <div class="muted">Senin–Jumat 09:00–17:00</div>
+          </div>
+
+          <div style="margin-bottom:12px">
+            <strong>Telepon</strong>
+            <div class="muted">+62 21 5555 0101</div>
+          </div>
+
+          <div>
+            <strong>Lokasi (peta)</strong>
+            <div style="margin-top:8px;border-radius:8px;overflow:hidden">
+              <iframe title="Velora location" src="https://www.google.com/maps?q=Jl.+Merdeka+Hijau+No.99+Jakarta&output=embed" width="100%" height="220" style="border:0" loading="lazy"></iframe>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer container" role="contentinfo">
+    <div class="footer-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="mark" style="width:44px;height:44px;border-radius:10px;color:white">V</div>
+          <div>
+            <div style="font-weight:700">Velora E-Mobility</div>
+            <div class="muted" style="font-size:13px">Ride Green. Ride Smart.</div>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:12px">© Velora 2025 — All rights reserved.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+        <div class="muted">Partners: Jakarta SmartCity · Green Logistics Co. · UrbanCharge</div>
+        <div><a href="#privacy" class="muted">Privacy Policy</a> · <a href="#tos" class="muted">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="aria-announcer" aria-live="polite" id="announcer"></div>
+
+  <script>
+    // Simple UI interactions: menu toggle (mobile), form validation & submit simulation, focus management
+    (function(){
+      const ham = document.querySelector('.hamburger');
+      const menu = document.getElementById('main-menu');
+      ham?.addEventListener('click', () => {
+        const expanded = ham.getAttribute('aria-expanded') === 'true';
+        ham.setAttribute('aria-expanded', String(!expanded));
+        if(!expanded){
+          menu.style.display = 'flex';
+          menu.style.flexDirection = 'column';
+          menu.style.gap = '10px';
+          menu.style.position = 'absolute';
+          menu.style.right = '20px';
+          menu.style.top = '72px';
+          menu.style.background = 'white';
+          menu.style.padding = '12px';
+          menu.style.borderRadius = '10px';
+          menu.style.boxShadow = '0 10px 30px rgba(10,37,64,0.08)';
+        } else {
+          menu.style.display = '';
+          menu.style.position = '';
+        }
+      });
+
+      // Form validation
+      const form = document.getElementById('contactForm');
+      const announcer = document.getElementById('announcer');
+      const statusBox = document.getElementById('formStatus');
+
+      const showError = (id, msg) => {
+        document.getElementById(id).textContent = msg || '';
+      };
+
+      const clearErrors = () => {
+        ['err-name','err-email','err-phone','err-purpose','err-message'].forEach(showError);
+      };
+
+      function validateEmail(email) {
+        // simple email check (not perfect) - RFC5322 would be heavy
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      form.addEventListener('submit', function(evt){
+        evt.preventDefault();
+        clearErrors();
+        statusBox.textContent = '';
+        let valid = true;
+
+        const honeypot = document.getElementById('honeypot').value;
+        if(honeypot) {
+          // bot detected - silently drop
+          announcer.textContent = 'Submission blocked.';
+          return;
+        }
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const purpose = document.getElementById('purpose').value;
+        const message = document.getElementById('message').value.trim();
+
+        if(name.length < 2){ showError('err-name','Masukkan nama minimal 2 karakter'); valid = false; }
+        if(!validateEmail(email)){ showError('err-email','Masukkan alamat email yang valid'); valid = false; }
+        if(phone && !/^\+?\d{7,15}$/.test(phone)){ showError('err-phone','Format nomor tidak valid'); valid = false; }
+        if(!purpose){ showError('err-purpose','Pilih tujuan komunikasi'); valid = false; }
+        if(message.length < 20){ showError('err-message','Pesan minimal 20 karakter'); valid = false; }
+
+        if(!valid){
+          announcer.textContent = 'Form terdapat kesalahan. Mohon periksa kembali.';
+          return;
+        }
+
+        // Simulate submit: in real app -> POST to endpoint with reCAPTCHA check, server validation, store to DB & email notif
+        statusBox.textContent = 'Mengirim...';
+        announcer.textContent = 'Mengirim formulir, mohon tunggu.';
+
+        // Simulated network delay
+        setTimeout(()=> {
+          // Simulate success
+          statusBox.textContent = '';
+          announcer.textContent = 'Pesan berhasil dikirim. Tim sales akan menghubungi Anda dalam 1–2 hari kerja.';
+          alert('Terima kasih! Pesan Anda telah diterima. Kami akan menghubungi Anda segera.');
+          form.reset();
+        }, 900);
+      });
+
+      // Accessibility: focus visible style
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Tab') document.body.classList.add('show-focus');
+      });
+
+    })();
+  </script>
+</body>
+</html>

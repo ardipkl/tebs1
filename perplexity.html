@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="GreenRide E-Bike Solutions - Solusi E-Bike ramah lingkungan dengan teknologi pintar." />
+  <title>GreenRide E-Bike Solutions</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #4caf50;
+      text-decoration: none;
+    }
+
+    header {
+      background-color: #4caf50;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+      border-radius: 8px;
+      box-shadow: inset 0 0 0 1000px rgba(76, 175, 80, 0.7);
+      margin-bottom: 3rem;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      background: #ff9800;
+      color: white;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-right: 1rem;
+    }
+
+    .btn-primary:hover {
+      background: #e68a00;
+    }
+
+    /* Section titles */
+    h3 {
+      color: #4caf50;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    /* Three points section */
+    .features {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .feature-card {
+      background: #f1f9f1;
+      border: 1px solid #4caf50;
+      border-radius: 8px;
+      padding: 1.5rem;
+      flex: 1 1 250px;
+      text-align: center;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-card h4 {
+      margin-bottom: 0.5rem;
+      color: #388e3c;
+    }
+
+    /* Layanan Section */
+    .services {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-bottom: 4rem;
+    }
+
+    .service-card {
+      border: 2px solid #4caf50;
+      border-radius: 10px;
+      padding: 1.5rem;
+      background: #e8f5e9;
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.07);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      box-shadow: 3px 3px 12px rgba(0,0,0,0.15);
+    }
+
+    .service-card h4 {
+      margin-bottom: 1rem;
+      color: #2e7d32;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333333;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .features {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GreenRide</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Beranda</a></li>
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Layanan</a></li>
+        <li><a href="#">Portofolio</a></li>
+        <li><a href="#">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" role="banner">
+      <h2>Melejitkan Mobilitas Hijau Anda</h2>
+      <p>Solusi E-Bike ramah lingkungan dengan teknologi pintar</p>
+      <button class="btn-primary" onclick="alert('Terima kasih telah tertarik!')">Pelajari Lebih Lanjut</button>
+      <button class="btn-primary" onclick="alert('Hubungi kami di kontak tersedia')">Hubungi Kami</button>
+    </section>
+
+    <section aria-labelledby="unggulan-title">
+      <h3 id="unggulan-title">Tiga Poin Unggulan Kami</h3>
+      <div class="features">
+        <article class="feature-card" tabindex="0">
+          <h4>Efisiensi Energi Tinggi</h4>
+          <p>Mengoptimalkan penggunaan baterai untuk perjalanan lebih lama dan hemat.</p>
+        </article>
+        <article class="feature-card" tabindex="0">
+          <h4>Desain Stylish dan Ergonomis</h4>
+          <p>Tampilan modern yang nyaman digunakan dan memudahkan mobilitas harian Anda.</p>
+        </article>
+        <article class="feature-card" tabindex="0">
+          <h4>Layanan Purna Jual 24/7</h4>
+          <p>Dukungan teknis dan servis cepat kapan saja Anda butuhkan.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="layanan-title">
+      <h3 id="layanan-title">Layanan & Produk Kami</h3>
+      <div class="services">
+        <div class="service-card" tabindex="0">
+          <h4>E-Bike Urban</h4>
+          <p>Sepeda listrik kompak untuk mobilitas harian perkotaan yang praktis dan hemat energi.</p>
+        </div>
+        <div class="service-card" tabindex="0">
+          <h4>E-Bike Touring</h4>
+          <p>Dirancang untuk perjalanan jarak jauh dengan baterai tahan lama dan kenyamanan unggul.</p>
+        </div>
+        <div class="service-card" tabindex="0">
+          <h4>Layanan Servis & Perawatan</h4>
+          <p>Perawatan lengkap dan upgrade teknologi agar E-Bike Anda selalu dalam kondisi prima.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 GreenRide E-Bike Solutions | Jl. Hijau Raya No.45, Jakarta</p>
+  </footer>
+</body>
+</html>

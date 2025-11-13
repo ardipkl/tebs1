@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECO-Ride: The Future is Electric. The Journey is Green.</title>
+    <style>
+        /* Skema Warna ECO-Ride */
+        :root {
+            --color-primary: #0D47A1; /* Biru Tua/Hutan */
+            --color-secondary: #4CAF50; /* Hijau Langit/Elektrik */
+            --color-accent: #FFC107; /* Kuning Cerah */
+            --color-text-dark: #333;
+            --color-text-light: #f4f4f4;
+            --font-family: 'Arial', sans-serif;
+        }
+
+        /* RESET & BASE */
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            color: var(--color-text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            color: var(--color-primary);
+            margin-top: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: var(--color-text-light);
+            padding: 10px 0;
+            border-bottom: 3px solid var(--color-secondary);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--color-primary);
+        }
+
+        nav .nav-links a {
+            color: var(--color-text-dark);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav .nav-links a:hover {
+            color: var(--color-secondary);
+        }
+
+        .cta-button {
+            background-color: var(--color-accent);
+            color: var(--color-text-dark);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #ffda6a; /* Lighter accent */
+        }
+
+        /* HERO SECTION */
+        #home .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('placeholder-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--color-text-light);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        #home .hero h1 {
+            color: white;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        #home .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        /* UNGGULAN SECTION */
+        #unggulan {
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .unggulan-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .unggulan-item {
+            flex-basis: 30%;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .unggulan-item h3 {
+            color: var(--color-secondary);
+            font-size: 1.5em;
+        }
+
+        /* LAYANAN/PRODUK & PORTFOLIO (Grid Styling) */
+        .product-grid, .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            color: var(--color-primary);
+        }
+        
+        /* TENTANG KAMI */
+        .about-content {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .about-text, .about-team {
+            flex-basis: 45%;
+            min-width: 300px;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .team-member-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+            margin-right: 15px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        /* CONTACT US (FORM & MAP) */
+        .contact-content {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-form, .contact-info {
+            flex-basis: 45%;
+            min-width: 300px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .contact-form input, .contact-form textarea, .contact-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box; /* Penting untuk width: 100% */
+        }
+
+        .contact-info iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+            margin-top: 20px;
+        }
+        
+        /* TESTIMONI & FAQ */
+        .testimonial-carousel {
+            display: flex; /* Simplifikasi: menampilkan 3 sekaligus */
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .testimonial-item {
+            min-width: 300px;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--color-accent);
+        }
+        
+        .partner-logo-strip {
+            text-align: center;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            opacity: 0.7;
+            flex-wrap: wrap;
+        }
+        
+        .partner-logo-strip div {
+            padding: 10px;
+            font-style: italic;
+            color: #999;
+        }
+
+        .faq-item {
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        
+        .faq-question {
+            background-color: #f4f4f4;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            display: block;
+        }
+
+        .faq-answer {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            /* Di produksi, ini akan disembunyikan dan di-toggle dengan JS */
+        }
+        
+        /* BERITA/BLOG (Sederhana) */
+        .blog-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .blog-card h4 {
+            color: var(--color-primary);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+        
+        footer a {
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        /* RESPONSIVENESS */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav .nav-links {
+                margin-top: 10px;
+            }
+            
+            nav .nav-links a {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .unggulan-item, .about-text, .about-team, .contact-form, .contact-info {
+                flex-basis: 100%;
+                margin-bottom: 30px;
+            }
+
+            #home .hero h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">ECO-Ride</div>
+                <div class="nav-links">
+                    <a href="#home">Beranda</a>
+                    <a href="#about">Tentang Kami</a>
+                    <a href="#products">Produk</a>
+                    <a href="#portfolio">Portofolio</a>
+                    <a href="#contact">Hubungi Kami</a>
+                    <a href="#" class="cta-button">Pesan Sekarang</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="hero">
+            <h1>Solusi Komuter Paling Bersih dan Cepat.</h1>
+            <p>"The Future is Electric. The Journey is Green."</p>
+            <a href="#products" class="cta-button">Lihat Koleksi Kami</a>
+        </div>
+        <div class="container" id="unggulan">
+            <h2>✨ Keunggulan Kami</h2>
+            <div class="unggulan-grid">
+                <div class="unggulan-item">
+                    <h3>ZERO EMISSION</h3>
+                    <p>100% Ramah Lingkungan, komitmen kami untuk udara perkotaan yang lebih bersih.</p>
+                </div>
+                <div class="unggulan-item">
+                    <h3>HIGH PERFORMANCE</h3>
+                    <p>Baterai Tahan Lama dan Kecepatan Optimal untuk perjalanan non-stop.</p>
+                </div>
+                <div class="unggulan-item">
+                    <h3>SMART DESIGN</h3>
+                    <p>Desain Futuristik, dilengkapi fitur keamanan canggih (GPS & Kunci Digital).</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 40px;"><a href="#about" class="cta-button" style="background-color: var(--color-secondary); color: white;">Mengapa Memilih Kami?</a></p>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h2>🌱 Tentang ECO-Ride</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Visi, Misi, dan Nilai Inti</h3>
+                <p><strong>Visi:</strong> Menjadi pemimpin pasar E-Bike di Asia Tenggara, mendorong adopsi transportasi berkelanjutan.</p>
+                <p><strong>Misi:</strong> Menyediakan kendaraan komuter yang andal, mengurangi jejak karbon, dan mengedukasi masyarakat tentang transportasi hijau.</p>
+                <h4>Nilai Inti:</h4>
+                <ul>
+                    <li>**Inovasi:** Selalu terdepan dalam teknologi baterai dan desain.</li>
+                    <li>**Keberlanjutan:** Setiap keputusan berorientasi lingkungan.</li>
+                    <li>**Keandalan:** Produk berkualitas dengan garansi terdepan.</li>
+                </ul>
+            </div>
+            <div class="about-team">
+                <h3>Tim Pendiri</h3>
+                <div class="team-member">
+                    <div class="team-member-img">AR</div>
+                    <div>
+                        <strong>Ariel Ramadhan</strong><br>
+                        Chief Executive Officer
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-img">DS</div>
+                    <div>
+                        <strong>Dewi Sartika</strong><br>
+                        Chief Technology Officer
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="container" style="background-color: #f9f9f9;">
+        <h2>🚲 Produk Unggulan Kami</h2>
+        <div class="product-grid">
+            <div class="card">
+                <img src="placeholder-bike1.jpg" alt="ECO-City Cruiser">
+                <div class="card-content">
+                    <h3>ECO-City Cruiser</h3>
+                    <p>E-Bike komuter harian. Ringan, lipat, jangkauan 40 km. Cocok untuk *last-mile* dan mobilitas cepat perkotaan.</p>
+                    <a href="#" class="cta-button" style="background-color: var(--color-secondary); padding: 8px 15px; font-size: 0.9em;">Detail Spesifikasi</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="placeholder-bike2.jpg" alt="ECO-Trail Adventurer">
+                <div class="card-content">
+                    <h3>ECO-Trail Adventurer</h3>
+                    <p>E-Bike *off-road* dengan suspensi ganda. Daya baterai ekstra (80 km) untuk petualangan tanpa batas.</p>
+                    <a href="#" class="cta-button" style="background-color: var(--color-secondary); padding: 8px 15px; font-size: 0.9em;">Detail Spesifikasi</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="placeholder-bike3.jpg" alt="ECO-Fleet Business">
+                <div class="card-content">
+                    <h3>ECO-Fleet Business</h3>
+                    <p>Solusi kustomisasi E-Bike untuk armada bisnis. Pengiriman hemat biaya, 100% ramah lingkungan B2B.</p>
+                    <a href="#" class="cta-button" style="background-color: var(--color-secondary); padding: 8px 15px; font-size: 0.9em;">Detail Spesifikasi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="container">
+        <h2>🏆 Portofolio Proyek</h2>
+        <div class="portfolio-grid">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Armada Hijau Jakarta Post</h3>
+                    <p><strong>Tantangan:</strong> Mengganti 50 motor konvensional di zona padat. <strong>Solusi:</strong> ECO-Fleet Kustom 3 Roda. <strong>Hasil:</strong> Pengurangan biaya operasional 40%.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Green Commuter Initiative, Bandung</h3>
+                    <p><strong>Tantangan:</strong> Transportasi umum ringan di area kampus. <strong>Solusi:</strong> Penempatan 30 unit ECO-City Cruiser. <strong>Hasil:</strong> Peningkatan 60% pengguna komuter non-polusi.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Bikepacking Bali Adventure Series</h3>
+                    <p><strong>Tantangan:</strong> E-Bike medan sulit 500 km. <strong>Solusi:</strong> Modifikasi ECO-Trail Adventurer. <strong>Hasil:</strong> Perjalanan sukses tanpa kendala daya.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="social-proof" class="container" style="background-color: #f9f9f9;">
+        <h2>💬 Apa Kata Klien Kami?</h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial-item">
+                <p>"Pengiriman kami jadi lebih cepat di jam sibuk kota. Investasi terbaik untuk efisiensi armada kami."</p>
+                <small><strong>- Bpk. Rudi, CEO Logistik Cepat</strong></small>
+            </div>
+            <div class="testimonial-item">
+                <p>"Desainnya *sleek*, performa top. Rasanya bangga bisa komuter tanpa polusi setiap hari."</p>
+                <small><strong>- Nia, Digital Nomad</strong></small>
+            </div>
+            <div class="testimonial-item">
+                <p>"Jangkauannya luar biasa. Hemat dan sangat nyaman untuk perjalanan rutin 30km ke kampus."</p>
+                <small><strong>- Dr. Anita, Dosen</strong></small>
+            </div>
+        </div>
+        
+        <h3>Mitra Kepercayaan Kami</h3>
+        <div class="partner-logo-strip">
+            <div>DHL Green Logistics</div>
+            <div>Go-Bike Community</div>
+            <div>Bank BNI Eco-Finance</div>
+            <div>E-Power Charging Stations</div>
+        </div>
+    </section>
+
+    <section id="blog" class="container">
+        <h2>📰 Berita Terbaru</h2>
+        <div class="blog-card">
+            <h4>ECO-Ride Meraih Pendanaan Seri A untuk Ekspansi ke 3 Kota Baru</h4>
+            <small>10 November 2025 | Admin ECO-Ride</small>
+            <p>ECO-Ride berhasil menutup pendanaan Seri A yang dipimpin oleh GreenVenture Capital. Dana ini akan digunakan untuk memperluas jangkauan layanan ke Surabaya, Medan, dan Makassar...</p>
+            <a href="#">Baca Selengkapnya</a>
+        </div>
+    </section>
+    
+    <section id="faq" class="container" style="background-color: #f9f9f9;">
+        <h2>❓ Pertanyaan Umum (FAQ)</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">Berapa lama garansi baterai ECO-Ride?</div>
+                <div class="faq-answer">Kami memberikan garansi 2 tahun atau 15.000 km untuk semua baterai lithium kami.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Apakah E-Bike ini legal di jalan raya Indonesia?</div>
+                <div class="faq-answer">Ya, model kami didesain sesuai regulasi sepeda listrik (maksimal 350W) dan memenuhi standar keamanan nasional.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Berapa kecepatan maksimal E-Bike?</div>
+                <div class="faq-answer">Kecepatan dibatasi secara elektronik pada 25 km/jam untuk mematuhi peraturan lalu lintas yang berlaku.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Bagaimana cara *service* atau perawatan?</div>
+                <div class="faq-answer">Kami memiliki 5 titik service center resmi. Jadwal perawatan dapat dipesan melalui aplikasi mobile kami.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Apakah tersedia opsi cicilan?</div>
+                <div class="faq-answer">Ya, kami bermitra dengan Bank BNI Eco-Finance dan tersedia cicilan 0% hingga 12 bulan.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>📞 Hubungi Kami</h2>
+        <div class="contact-content">
+            <div class="contact-form">
+                <h3>Kirimkan Pesan Anda</h3>
+                <form action="#" method="POST">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="layanan">Pilihan Layanan</label>
+                    <select id="layanan" name="layanan" required>
+                        <option value="">-- Pilih --</option>
+                        <option value="beli-unit">Pembelian Unit (Retail)</option>
+                        <option value="fleet-bisnis">ECO-Fleet Business</option>
+                        <option value="lainnya">Pertanyaan Lainnya</option>
+                    </select>
+
+                    <label for="pesan">Pesan</label>
+                    <textarea id="pesan" name="pesan" rows="5" required></textarea>
+
+                    <button type="submit" class="cta-button" style="width: 100%;">Kirim Pesan</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3>Informasi Kontak</h3>
+                <p><strong>Alamat Fiktif:</strong></p>
+                <p>Jl. Sudirman Kav. 52-53, Tower A, Lantai 18, Jakarta 12190</p>
+                <p><strong>Email:</strong> info@ecoride.co.id</p>
+                <p><strong>Telepon:</strong> (021) 555-RIDE</p>
+
+                <p>Lokasi Kami:</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15866.568390772412!2d106.8042467272906!3d-6.208763499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f688e4004c99%3A0x7d24a04e578f1e56!2sJl.%20Jend.%20Sudirman%20Kav.%2052-53%2C%20RT.5%2FRW.3%2C%20Senayan%2C%20Kecamatan%20Kebayoran%20Baru%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2012190!5e0!3m2!1sid!2e0!4v1700000000000!5m2!1sid!2sen" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 ECO-Ride. All Rights Reserved. | <a href="#">Kebijakan Privasi</a> | <a href="#">Syarat & Ketentuan</a></p>
+        </footer>
+
+</body>
+</html>

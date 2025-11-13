@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nusantara Digital Kreasi - Jasa Konsultasi Digital Marketing</title>
+    
+    <!-- Google Fonts: Poppins & Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES (THEMING) --- */
+        :root {
+            --primary-color: #0A4D68;
+            --secondary-color: #FFA500;
+            --light-gray: #F5F5F5;
+            --dark-gray: #333333;
+            --white: #FFFFFF;
+            --heading-font: 'Poppins', sans-serif;
+            --body-font: 'Lato', sans-serif;
+        }
+
+        /* --- GLOBAL STYLES & RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2rem; }
+        h3 { font-size: 1.5rem; color: var(--primary-color); }
+
+        p { margin-bottom: 1rem; }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            font-weight: 700;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e59400;
+            transform: translateY(-2px);
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        .header {
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-list {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-list a {
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .nav-list a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(10, 77, 104, 0.8), rgba(10, 77, 104, 0.8)), url('https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            height: 90vh;
+            color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        /* --- KEY POINTS SECTION --- */
+        .key-points-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .key-point-box i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .key-point-box h3 {
+            font-size: 1.3rem;
+        }
+
+        /* --- ABOUT US SECTION --- */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .core-values {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .value-box {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            text-align: center;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 5px;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* --- PORTFOLIO SECTION --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 77, 104, 0.8);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        /* --- TESTIMONIALS SECTION --- */
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card h4 {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .testimonial-card span {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3, .contact-form h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: var(--body-font);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background: var(--primary-color);
+            color: var(--light-gray);
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--light-gray);
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .about-content { grid-template-columns: 1fr; }
+            .core-values { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-list {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .nav-list.active {
+                display: flex;
+            }
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero { height: 70vh; }
+
+            .key-points-grid,
+            .services-grid,
+            .portfolio-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .social-links { justify-content: center; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="header">
+        <nav class="main-nav container">
+            <div class="logo">
+                <h1>Nusantara Digital <span>Kreasi</span></h1>
+            </div>
+            <ul class="nav-list" id="navList">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#portfolio">Portofolio</a></li>
+                <li><a href="#testimonials">Testimoni</a></li>
+                <li><a href="#contact">Hubungi Kami</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Wujudkan Potensi Maksimal Bisnis Anda di Era Digital</h1>
+                <p>Nusantara Digital Kreasi adalah mitra terpercaya Anda untuk mengembangkan strategi digital marketing yang efektif dan terukur.</p>
+                <a href="#contact" class="btn">Mulai Konsultasi Gratis</a>
+            </div>
+        </section>
+
+        <!-- KEY POINTS SECTION -->
+        <section id="key-points" class="section-padding">
+            <div class="container">
+                <div class="key-points-grid">
+                    <div class="key-point-box">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Strategi Data-Driven</h3>
+                        <p>Setiap keputusan didasarkan pada analisis data mendalam untuk memastikan kampanye yang efektif dan efisien.</p>
+                    </div>
+                    <div class="key-point-box">
+                        <i class="fas fa-users"></i>
+                        <h3>Tim Berpengalaman</h3>
+                        <p>Dipercaya oleh berbagai bisnis, tim kami terdiri dari ahli di bidang SEO, SMM, dan iklan berbayar.</p>
+                    </div>
+                    <div class="key-point-box">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Fokus pada ROI</h3>
+                        <p>Kami tidak hanya meningkatkan traffic, tetapi berkomitmen untuk memberikan pengembalian investasi yang nyata.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT US SECTION -->
+        <section id="about" class="section-padding" style="background-color: var(--light-gray);">
+            <div class="container">
+                <h2>Tentang Kami</h2>
+                <div class="about-content">
+                    <div>
+                        <h3>Visi & Misi</h3>
+                        <p><strong>Visi:</strong> Menjadi konsultan digital marketing terdepan dan paling tepercaya di Indonesia, yang membantu UMKM dan startup berkembang pesat di era digital.</p>
+                        <p><strong>Misi:</strong> Memberikan solusi digital marketing yang inovatif, terukur, dan terjangkau. Kami berdedikasi untuk menjadi mitra strategis bagi klien, membangun kehadiran digital yang kuat, dan mendorong pertumbuhan bisnis yang berkelanjutan.</p>
+                    </div>
+                    <div>
+                        <h3>Nilai Inti Kami</h3>
+                        <div class="core-values">
+                            <div class="value-box">
+                                <i class="fas fa-handshake"></i>
+                                <h4>Integritas</h4>
+                            </div>
+                            <div class="value-box">
+                                <i class="fas fa-lightbulb"></i>
+                                <h4>Inovasi</h4>
+                            </div>
+                            <div class="value-box">
+                                <i class="fas fa-people-carry"></i>
+                                <h4>Kolaborasi</h4>
+                            </div>
+                            <div class="value-box">
+                                <i class="fas fa-trophy"></i>
+                                <h4>Hasil-Oriented</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="text-center" style="margin-top: 4rem;">Berkenalan dengan Pendiri Kami</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://picsum.photos/seed/founder1/150/150.jpg" alt="Andi Pratama">
+                        <h4>Andi Pratama</h4>
+                        <p>CEO & Lead Strategist</p>
+                        <p style="font-size: 0.9rem;">Ahli strategi digital dengan 10+ tahun pengalaman membantu berbagai perusahaan rintisan dan UMKM.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://picsum.photos/seed/founder2/150/150.jpg" alt="Siti Rahayu">
+                        <h4>Siti Rahayu</h4>
+                        <p>COO & Head of Client Success</p>
+                        <p style="font-size: 0.9rem;">Berpengalaman dalam manajemen operasional dan memastikan kepuasan klien setiap saat.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://picsum.photos/seed/founder3/150/150.jpg" alt="Budi Santoso">
+                        <h4>Budi Santoso</h4>
+                        <p>CTO & SEO Specialist</p>
+                        <p style="font-size: 0.9rem;">Pakar teknologi dan optimasi mesin pencari yang passionate dengan data dan algoritma.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="section-padding">
+            <div class="container">
+                <h2>Layanan Kami</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-search"></i>
+                        <h3>SEO & Content Marketing</h3>
+                        <p>Meningkatkan visibilitas website Anda di mesin pencari dan membangun otoritas brand melalui konten berkualitas tinggi yang relevan dengan audiens.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-comments"></i>
+                        <h3>Social Media Management</h3>
+                        <p>Mengelola dan mengembangkan akun media sosial Anda untuk meningkatkan engagement, membangun komunitas loyal, dan mendorong konversi.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Iklan Berbayar (PPC)</h3>
+                        <p>Menjalankan kampanye iklan yang tepat sasaran di Google, Facebook, dan Instagram untuk mendapatkan hasil cepat dan lead yang berkualitas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO SECTION -->
+        <section id="portfolio" class="section-padding" style="background-color: var(--light-gray);">
+            <div class="container">
+                <h2>Portofolio Kami</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/coffee/400/250.jpg" alt="Proyek Kopi Sedap">
+                        <div class="portfolio-overlay">
+                            <h4>Kopi Sedap (UMKM F&B)</h4>
+                            <p>Tantangan: Penjualan online rendah. Solusi: SEO Lokal & Instagram Ads. Hasil: Penjualan naik 150%.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/fashion/400/250.jpg" alt="Proyek Fashionable">
+                        <div class="portfolio-overlay">
+                            <h4>Fashionable (Startup Fashion)</h4>
+                            <p>Tantangan: Brand tidak dikenal. Solusi: Influencer Marketing & SMM. Hasil: Follower naik 50k.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/edutech/400/250.jpg" alt="Proyek EduTech Cerdas">
+                        <div class="portfolio-overlay">
+                            <h4>EduTech Cerdas (Perusahaan Teknologi)</h4>
+                            <p>Tantangan: Sulit dapat lead berkualitas. Solusi: Google Ads & Landing Page Optimization. Hasil: CPA turun 40%.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section id="testimonials" class="section-padding">
+            <div class="container">
+                <h2>Apa Kata Klien Kami</h2>
+                <div class="testimonials-container">
+                    <div class="testimonial-card">
+                        <p>"NDK mengubah bisnis kami! Strategi SEO mereka luar biasa, sekarang kami mudah ditemukan di Google. ROI yang kami dapatkan jauh melebihi ekspektasi."</p>
+                        <h4>Budi Santoso</h4>
+                        <span>CEO, "Kopi Sedap"</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Tim NDK sangat kreatif dalam mengelola sosial media kami. Merek kami menjadi dikenal oleh ribuan anak muda dalam waktu singkat. Highly recommended!"</p>
+                        <h4>Siti Nurhaliza</h4>
+                        <span>Founder, "Fashionable"</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Mereka tidak hanya menghasilkan lead, tetapi lead yang berkualitas. Pendekatan data-driven mereka membantu kami mengoptimalkan anggaran iklan dengan sangat efisien."</p>
+                        <h4>Andi Wijaya</h4>
+                        <span>CMO, "EduTech Cerdas"</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section-padding" style="background-color: var(--light-gray);">
+            <div class="container">
+                <h2>Hubungi Kami</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h3>Informasi Kontak</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Jl. Inovasi No. 88, Jakarta Selatan, DKI Jakarta 12345, Indonesia.</p>
+                        <p><i class="fas fa-phone"></i> (+62) 812-3456-7890</p>
+                        <p><i class="fas fa-envelope"></i> hello@ndk.co.id</p>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613507864!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sPT%20Kulkul%20Technology%20Innovation!5e0!3m2!1sen!2sid!4v1678886367809!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Kirim Pesan untuk Kami</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Nama Lengkap</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subjek</label>
+                                <input type="text" id="subject" name="subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Pesan</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Kirim Pesan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Nusantara Digital Kreasi</h3>
+                    <p>Membangun Digital Presence, Meningkatkan Bisnis Anda.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Link Cepat</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#services">Layanan</a></li>
+                        <li><a href="#portfolio">Portofolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="#">SEO & Content Marketing</a></li>
+                        <li><a href="#">Social Media Management</a></li>
+                        <li><a href="#">Iklan Berbayar (PPC)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Partner</h3>
+                    <p>Google Partner | Meta Business Partner | HubSpot Certified</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nusantara Digital Kreasi. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Navigation Toggle -->
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navList = document.getElementById('navList');
+
+        navToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        // Close nav when a link is clicked
+        document.querySelectorAll('.nav-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
